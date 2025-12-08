@@ -55,7 +55,7 @@ class Product extends Model
 
     public function productIngredients()
     {
-        return $this->hasMany(productIngredients::class);
+        return $this->hasMany(ProductIngredient::class);
     }
 
     public function transactionDetails()

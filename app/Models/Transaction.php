@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;   
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class Transaction extends Model
 {
@@ -13,11 +15,29 @@ class Transaction extends Model
         'user_id',
         'code',
         'name',
+        'phone_number',
         'table_number',
         'payment_method',
         'total_price',
         'status',
     ];
+
+    public static function boot(){
+        parent::boot();
+
+        static::creating(function ($model){
+            if (Auth::user()->role === 'store') {
+                $model->user_id = Auth::user()->id;
+            }
+        });
+
+        static::updating(function ($model){
+            if (Auth::user()->role === 'store') {
+                $model->user_id = Auth::user()->id;
+            }
+            $model->slug = Str::slug($model->name);
+        });
+    }
 
     public function user()
     {

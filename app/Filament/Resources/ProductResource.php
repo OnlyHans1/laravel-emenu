@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\Subscription;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -34,6 +36,23 @@ class ProductResource extends Resource
         return parent::getEloquentQuery()->where('user_id', $user->id);
     }
 
+    public static function canCreate(): bool 
+    {
+        if (Auth::user()->role === 'admin'){
+            return true;
+        }
+
+        $subcription = Subscription::where('user_id', Auth::user()->id)
+            ->where('end_date', '>', now())
+            ->where('is_active', true)
+            ->latest()
+            ->first();
+
+        $countProduct = Product::where('user_id', Auth::user()->id)->count();
+
+        return !($countProduct >= 5 && !$subcription);
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -50,7 +69,7 @@ class ProductResource extends Resource
                     ->relationship('productCategory', 'name')
                     ->disabled(fn(callable $get) => $get('user_id') === null)
                     ->options(function(callable $get){
-                        $userid = $get('user_id');
+                        $userId = $get('user_id');
 
                         if (!$userId) {
                             return ProductCategory::all()->pluck('name', 'id');
