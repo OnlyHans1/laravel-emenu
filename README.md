@@ -1,61 +1,189 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# E-Menu - Digital Restaurant Menu System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php)](https://php.net)
+[![Filament](https://img.shields.io/badge/Filament-3.x-1f2937?style=for-the-badge&logo=filament)](https://filamentphp.com)
+[![Midtrans](https://img.shields.io/badge/Midtrans-3D5AFE?style=for-the-badge&logo=midtrans)](https://midtrans.com)
 
-## About Laravel
+E-Menu adalah aplikasi web modern untuk manajemen menu restoran digital yang dibangun menggunakan Laravel 11 dan FilamentPHP. Aplikasi ini menyediakan platform lengkap untuk restoran dalam mengelola menu, pesanan, dan transaksi dengan interface yang user-friendly dan mobile-responsive.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### ✨ Fitur Customer (Frontend)
+- **Digital Menu** - Browse menu produk dengan kategori
+- **Search & Filter** - Pencarian produk dan filter berdasarkan kategori
+- **Shopping Cart** - Keranjang belanja dengan quantity adjustment
+- **Customer Information** - Form data customer untuk checkout
+- **Multiple Payment** - Support cash dan Midtrans payment gateway
+- **Order Tracking** - Tracking status pesanan dengan kode unik
+- **Mobile Responsive** - Optimized untuk mobile devices
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### ✨ Fitur Admin (FilamentPHP)
+- **Dashboard Analytics** - Ringkasan penjualan dan statistik
+- **Manajemen Produk** - CRUD lengkap untuk menu makanan/minuman
+- **Manajemen Kategori** - Pengelolaan kategori produk
+- **Manajemen Store** - Multi-store management
+- **Manajemen Transaksi** - Tracking dan pengelolaan pesanan
+- **User Management** - Pengelolaan data store owner
+- **Payment Gateway** - Konfigurasi Midtrans payment
 
-## Learning Laravel
+## 📋 Struktur Database
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Model Utama:
+- `User` - Data store owner dan admin
+- `Product` - Menu makanan/minuman
+- `ProductCategory` - Kategori produk
+- `Transaction` - Data transaksi pesanan
+- `TransactionDetail` - Detail item dalam transaksi
+- `Subscription` - Data subscription store
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🛠️ Tech Stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Backend**: Laravel 11.x (PHP 8.2+)
+- **Frontend**: Blade, Tailwind CSS, JavaScript
+- **Admin Panel**: FilamentPHP 3.x
+- **Build Tool**: Vite
+- **Database**: MySQL/SQLite
+- **Payment**: Midtrans Gateway
+- **Development**: Laravel Sail (Docker)
 
-## Laravel Sponsors
+## 📦 Instalasi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Prerequisites
+- PHP 8.2 atau lebih tinggi
+- Composer
+- Node.js & npm
+- Git
+- Database (MySQL/SQLite)
 
-### Premium Partners
+### Langkah Instalasi
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1. **Clone Repository**
+   ```bash
+   git clone <repository-url>
+   cd emenu
+   ```
 
-## Contributing
+2. **Install PHP Dependencies**
+   ```bash
+   composer install
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. **Setup Environment**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Code of Conduct
+5. **Database Setup**
+   ```bash
+   # Untuk SQLite (default)
+   touch database/database.sqlite
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   # Untuk MySQL
+   # Update konfigurasi DB di file .env
+   # DB_CONNECTION=mysql
+   # DB_HOST=127.0.0.1
+   # DB_PORT=3306
+   # DB_DATABASE=emenu
+   # DB_USERNAME=your_username
+   # DB_PASSWORD=your_password
+   ```
 
-## Security Vulnerabilities
+6. **Run Migrations & Seeders**
+   ```bash
+   php artisan migrate
+   php artisan db:seed
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+7. **Build Assets**
+   ```bash
+   npm run build
+   # atau untuk development
+   npm run dev
+   ```
 
-## License
+## 📖 Penggunaan
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Akses Admin Panel
+1. Buka browser dan akses: `http://localhost:8000/admin`
+2. Login dengan kredensial admin:
+   - Email: `admin@example.com`
+   - Password: `password`
+3. Kelola produk, kategori, dan transaksi melalui dashboard
+
+### Akses Customer Interface
+1. Buka browser dan akses: `http://localhost:8000/{store-username}`
+2. Browse menu dan tambahkan ke keranjang
+3. Checkout dengan mengisi informasi customer
+4. Pilih metode pembayaran (cash/Midtrans)
+
+### Development Commands
+```bash
+# Menjalankan development server
+php artisan serve
+
+# Build assets untuk production
+npm run build
+
+# Watch assets untuk development
+npm run dev
+```
+
+## 🔧 Konfigurasi
+
+### Environment Variables (.env)
+```env
+APP_NAME="E-Menu"
+APP_ENV=local
+APP_KEY=base64:your-key-here
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=sqlite
+# DB_CONNECTION=mysql (untuk MySQL)
+
+# Midtrans Configuration
+MIDTRANS_SERVER_KEY=your-midtrans-server-key
+MIDTRANS_IS_PRODUCTION=false
+MIDTRANS_IS_SANITIZED=true
+MIDTRANS_IS_3DS=true
+
+```
+
+### File Konfigurasi Penting
+- `config/filament.php` - Konfigurasi admin panel
+- `config/midtrans.php` - Konfigurasi payment gateway
+
+## 📁 Struktur Project
+
+```
+emenu/
+├── app/
+│   ├── Filament/Resources/     # Admin panel resources
+│   ├── Http/Controllers/       # HTTP controllers
+│   ├── Http/Controllers/Api/   # API controllers (Midtrans)
+│   ├── Models/                # Eloquent models
+│   └── Providers/             # Service providers
+├── config/
+│   ├── filament.php           # Filament configuration
+│   └── midtrans.php           # Midtrans configuration
+├── database/
+│   ├── migrations/            # Database migrations
+│   └── seeders/               # Database seeders
+├── public/
+│   ├── assets/                # CSS, JS, images
+│   └── storage/               # Uploaded files
+├── resources/
+│   ├── css/                   # Custom CSS
+│   ├── js/                    # JavaScript files
+│   └── views/                 # Blade templates
+│       ├── layouts/           # Layout templates
+│       └── pages/             # Page templates
+├── routes/
+│   ├── web.php                # Web routes
+│   └── api.php                # API routes
+└── storage/                   # File storage
+```
+
+**E-Menu** - Solusi digital untuk manajemen restoran modern! 🍽️✨
