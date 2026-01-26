@@ -126,7 +126,7 @@ class TransactionResource extends Resource
                     ->label('Metode Pembayaran'),
                 Tables\Columns\TextColumn::make('total_price')
                     ->label('Total Harga')
-                    ->formatStatusUsing(function (string $state) {
+                    ->formatStateUsing(function (string $state) {
                         return 'Rp ' . number_format($state);
                     }),
                 Tables\Columns\TextColumn::make('status')

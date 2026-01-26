@@ -86,9 +86,11 @@ class ProductResource extends Resource
                         return ProductCategory::where('user_id', Auth::user()->id)->pluck('name', 'id');
                     })
                     ->hidden(fn() => Auth::user()->role === 'admin'),
-                Forms\Components\FileUpload::make('logo')
+                Forms\Components\FileUpload::make('image')
                     ->label('Foto Menu')
                     ->image()
+                    ->directory('products')
+                    ->visibility('public')
                     ->required(),
                 Forms\Components\TextInput::make('name')
                     ->label('Nama Menu')
