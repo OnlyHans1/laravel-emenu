@@ -1,11 +1,11 @@
 # E-Menu - Digital Restaurant Menu System
 
-[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php)](https://php.net)
 [![Filament](https://img.shields.io/badge/Filament-3.x-1f2937?style=for-the-badge&logo=filament)](https://filamentphp.com)
 [![Midtrans](https://img.shields.io/badge/Midtrans-3D5AFE?style=for-the-badge&logo=midtrans)](https://midtrans.com)
 
-E-Menu adalah aplikasi web modern untuk manajemen menu restoran digital yang dibangun menggunakan Laravel 11 dan FilamentPHP. Aplikasi ini menyediakan platform lengkap untuk restoran dalam mengelola menu, pesanan, dan transaksi dengan interface yang user-friendly dan mobile-responsive.
+E-Menu adalah aplikasi web modern untuk manajemen menu restoran digital yang dibangun menggunakan Laravel 12 dan FilamentPHP. Aplikasi ini menyediakan platform lengkap untuk restoran dalam mengelola menu, pesanan, dan transaksi dengan interface yang user-friendly dan mobile-responsive.
 
 ## 🚀 Fitur Utama
 
@@ -39,22 +39,19 @@ E-Menu adalah aplikasi web modern untuk manajemen menu restoran digital yang dib
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Laravel 11.x (PHP 8.2+)
+- **Backend**: Laravel 12.x (PHP 8.2+)
 - **Frontend**: Blade, Tailwind CSS, JavaScript
 - **Admin Panel**: FilamentPHP 3.x
-- **Build Tool**: Vite
-- **Database**: MySQL/SQLite
+- **Database**: MySQL
 - **Payment**: Midtrans Gateway
-- **Development**: Laravel Sail (Docker)
 
 ## 📦 Instalasi
 
 ### Prerequisites
 - PHP 8.2 atau lebih tinggi
 - Composer
-- Node.js & npm
 - Git
-- Database (MySQL/SQLite)
+- Database (MySQL)
 
 ### Langkah Instalasi
 
@@ -77,9 +74,6 @@ E-Menu adalah aplikasi web modern untuk manajemen menu restoran digital yang dib
 
 5. **Database Setup**
    ```bash
-   # Untuk SQLite (default)
-   touch database/database.sqlite
-
    # Untuk MySQL
    # Update konfigurasi DB di file .env
    # DB_CONNECTION=mysql
@@ -96,24 +90,20 @@ E-Menu adalah aplikasi web modern untuk manajemen menu restoran digital yang dib
    php artisan db:seed
    ```
 
-7. **Build Assets**
-   ```bash
-   npm run build
-   # atau untuk development
-   npm run dev
-   ```
-
 ## 📖 Penggunaan
 
 ### Akses Admin Panel
 1. Buka browser dan akses: `http://localhost:8000/admin`
 2. Login dengan kredensial admin:
-   - Email: `admin@example.com`
+   - Email: `admin@admin.com`
+   - Password: `123`
+   Login dengan kredensial store:
+   - Email: `warsa@example.com`
    - Password: `password`
 3. Kelola produk, kategori, dan transaksi melalui dashboard
 
 ### Akses Customer Interface
-1. Buka browser dan akses: `http://localhost:8000/{store-username}`
+1. Buka browser dan akses: `http://localhost:8000/{store-username}` Contoh (http://localhost:8000/warsa)
 2. Browse menu dan tambahkan ke keranjang
 3. Checkout dengan mengisi informasi customer
 4. Pilih metode pembayaran (cash/Midtrans)
@@ -140,8 +130,7 @@ APP_KEY=base64:your-key-here
 APP_DEBUG=true
 APP_URL=http://localhost:8000
 
-DB_CONNECTION=sqlite
-# DB_CONNECTION=mysql (untuk MySQL)
+DB_CONNECTION=mysql
 
 # Midtrans Configuration
 MIDTRANS_SERVER_KEY=your-midtrans-server-key

@@ -16,8 +16,8 @@
                 <div class="flex flex-col gap-4 mt-[10px]">
                     <div
                         class="flex items-center rounded-[8px] border border-[#F1F2F6] p-[12px] gap-4 bg-white hover:bg-[#FFF7F0] hover:border-[1px] hover:border-[#F3AF00] transition-all duration-300">
-                        <div class="w-[128px] h-[88px]">
-                            <img src="{{ asset('storage/' .$transactionDetail->product->image) }}" class="w-full object-cover rounded-[8px]"
+                        <div class="w-[128px] h-[128px]">
+                            <img src="{{ asset('storage/' .$transactionDetail->product->image) }}" class="w-full h-full object-cover rounded-[8px]"
                                 alt="icon">
                         </div>
                         <div class="flex flex-col gap-1 w-full">

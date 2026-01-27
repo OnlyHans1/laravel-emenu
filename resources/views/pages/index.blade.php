@@ -122,7 +122,7 @@
         <a href="{{ route('product.show', ['username' => $store->username, 'id' => $product->id]) }}" class="card">
             <div
                 class="flex rounded-[8px] border border-[#F1F2F6] p-[12px] gap-4 bg-white hover:bg-[#FFF7F0] hover:border-[1px] hover:border-[#F3AF00] transition-all duration-300">
-                <img src="{{ asset('storage/' . $product->image) }}" class="w-[128px] object-cover rounded-[8px]"
+                <img src="{{ asset('storage/' . $product->image) }}" class="w-[128px] h-[128px] object-cover rounded-[8px]"
                     alt="icon">
                 <div class="flex flex-col gap-1 w-full">
                     <p class="text-[#F3AF00] font-[400] text-[12px]">

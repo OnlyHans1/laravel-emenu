@@ -22,7 +22,7 @@
     <a href="" class="card">
         <div
             class="flex rounded-[8px] border border-[#F1F2F6] p-[12px] gap-4 bg-white hover:bg-[#FFF7F0] hover:border-[1px] hover:border-[#F3AF00] transition-all duration-300">
-            <div class="w-[128px] h-[88px]">
+            <div class="w-[128px] h-[128px]">
                 <img src="{{ asset('storage/'.$product->image) }}"
                     class="w-full h-full object-cover rounded-[8px]" alt="icon">
             </div>
