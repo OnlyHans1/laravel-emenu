@@ -97,10 +97,11 @@ E-Menu adalah aplikasi web modern untuk manajemen menu restoran digital yang dib
 2. Login dengan kredensial admin:
    - Email: `admin@admin.com`
    - Password: `123`
-   Login dengan kredensial store:
+
+    Login dengan kredensial store:
    - Email: `warsa@example.com`
    - Password: `password`
-3. Kelola produk, kategori, dan transaksi melalui dashboard
+4. Kelola produk, kategori, dan transaksi melalui dashboard
 
 ### Akses Customer Interface
 1. Buka browser dan akses: `http://localhost:8000/{store-username}` Contoh (http://localhost:8000/warsa)
